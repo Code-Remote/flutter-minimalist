@@ -1,16 +1,16 @@
-# flutter_minimalist
+# Flutter Minimalist state management example
 
-A new Flutter project.
+Because the [official Flutter website] mentions 13 different ways to do state management, why not
+yet another state management example. The official Flutter [cupertino-store codelabs] is used as
+basis, but instead of using the Provider pattern the [Minimalist approach] is
+used. Shout out to [@mvolpato] for sharing it and [@suragch1] for writing it.
 
-## Getting Started
+## Cupertino-store minimalist approach
 
-This project is a starting point for a Flutter application.
+![minimalist-preview.gif](/minimalist-preview.gif "Cupertino store preview")
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Minimalist approach]: https://suragch.medium.com/flutter-state-management-for-minimalists-4c71a2f2f0c1
+[cupertino-store codelabs]: https://codelabs.developers.google.com/codelabs/flutter-cupertino#0
+[official Flutter website]: https://docs.flutter.dev/development/data-and-backend/state-mgmt/options
+[@mvolpato]: https://github.com/mvolpato/
+[@suragch1]: https://github.com/suragch/minimalist_state_management_timer_app
