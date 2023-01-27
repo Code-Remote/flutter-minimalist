@@ -4,22 +4,22 @@ import 'package:flutter_minimalist/services/CartService.dart';
 import 'package:intl/intl.dart';
 
 class ShoppingCartPageManager {
-  final _cardService = getIt<CartService>();
+  final _cartService = getIt<CartService>();
   final _currencyFormat = NumberFormat.currency(symbol: '\$');
 
-  late final ValueNotifier<Map<int, int>> cartNotifier =
-      _cardService.cartNotifier;
+  late final ValueNotifier<Map<int, int>> cartNotifier = _cartService.cartNotifier;
 
-  get formattedShippingCosts => _currencyFormat.format(_cardService.shippingCost);
+  get totalCartQuantity => _cartService.totalCartQuantity;
 
-  get formattedTaxes => _currencyFormat.format(_cardService.tax);
+  get formattedShippingCosts => _currencyFormat.format(_cartService.shippingCost);
 
-  get formatTotalOrderCosts => _currencyFormat.format(_cardService.totalCartQuantity);
+  get formattedTaxes => _currencyFormat.format(_cartService.tax);
+
+  get formatTotalOrderCosts => _currencyFormat.format(_cartService.totalCartQuantity);
 
   String formatTotalProductPrice(int quantity, int price) =>
       _currencyFormat.format(quantity * price);
 
-  String formatQuantityCalculation(quantity, price) =>
-      '${quantity > 1 ? '$quantity x ' : ''}'
+  String formatQuantityCalculation(quantity, price) => '${quantity > 1 ? '$quantity x ' : ''}'
       '${_currencyFormat.format(price)}';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_minimalist/cupertino/CupertinoHome.dart';
+
 import 'ServiceLocator.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return buildCupertinoApp();
   }
 
-  CupertinoApp buildCupertinoApp(){
+  CupertinoApp buildCupertinoApp() {
     return const CupertinoApp(
       theme: CupertinoThemeData(brightness: Brightness.light),
       home: CupertinoHomePage(),

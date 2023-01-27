@@ -1,7 +1,10 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../ServiceLocator.dart';
 import 'ProductListTab.dart';
 import 'SearchTab.dart';
+import 'ShoppingCartPageManager.dart';
 import 'ShoppingCartTab.dart';
 
 class CupertinoHomePage extends StatelessWidget {
@@ -9,19 +12,30 @@ class CupertinoHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageManager = getIt<ShoppingCartPageManager>();
+
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        height: 64,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
             label: 'Products',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.search),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.shopping_cart),
+            icon: ValueListenableBuilder<Map<int, int>>(
+                valueListenable: pageManager.cartNotifier,
+                builder: (context, value, child) {
+                  return Badge(
+                    showBadge: pageManager.totalCartQuantity > 0,
+                    badgeContent: Text('${pageManager.totalCartQuantity}'),
+                    child: const Icon(CupertinoIcons.shopping_cart),
+                  );
+                }),
             label: 'Cart',
           ),
         ],
